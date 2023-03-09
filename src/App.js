@@ -1,23 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
 
 function App() {
+
+  let [planet, setPlanet] = useState('sun')
+  let [sky, setSky] = useState('light')
+
+
+  const handleChange = () => {
+    planet === 'sun' ? setPlanet('moon') : setPlanet ('sun')
+    sky === 'light' ? setSky ('dark') : setSky ('light')
+    return (sky, planet)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={sky}>
+      <div className={planet} onClick={handleChange}></div>
     </div>
   );
 }
